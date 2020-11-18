@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<h2>thymeLeaf 예제</h2>
+	<p th:text="${username}">사용자이름</p>
+	<p th:text="${tel}">전화번호</p>	
+</body>
+</html>

@@ -1,0 +1,42 @@
+package com.biz.bbs.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.biz.bbs.domain.BBsVO;
+import com.biz.bbs.domain.persistence.BBsDao;
+
+@RestController
+@RequestMapping(value="/api")
+public class BBsApiController {
+
+	@Autowired
+	private BBsDao bbsDao;
+	
+	@RequestMapping(value="/bbslist",method=RequestMethod.GET)	
+	public List<BBsVO> list() {
+		List<BBsVO> bbsList = bbsDao.findAll();
+		return bbsList;
+	}
+	
+	@RequestMapping(value="/view/{id}",method=RequestMethod.GET)
+	public BBsVO findBy(@PathVariable("id") String id) {		
+			Optional<BBsVO> optionVO = bbsDao.findById(Long.valueOf(id));
+			BBsVO bbsVO = optionVO.get();
+			return bbsVO;
+	}
+	
+	@RequestMapping(value="/insert",method=RequestMethod.POST)
+	public String insert(@ModelAttribute BBsVO bbsVO) {
+		BBsVO bVO = bbsDao.save(bbsVO);
+		return "OK";
+	}
+
+}
