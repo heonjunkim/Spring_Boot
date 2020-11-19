@@ -1,5 +1,0 @@
-package com.biz.bbs.domain.persistence;
-
-public interface BBsDao {
-
-}

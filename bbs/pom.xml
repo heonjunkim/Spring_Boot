@@ -43,7 +43,7 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!--java persistance architecture. -->
+		<!--java persistence architecture. -->
 		<!-- java 영속성 기술.. -->
 		<!-- SQL을 거의 사용하지 않고도 -->
 		<!-- DB연동을 하여 CRUD, Pagination등을 구현할수 있는 기술 -->
